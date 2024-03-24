@@ -1,14 +1,23 @@
-import { useState } from "react";
 import "./App.css";
+import About from "./Components/About/About";
+import Contact from "./Components/Contact/Contact";
+import Home from "./Components/Home/Home";
+import { BrowserRouter , Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-red-900">
-        cd "E-Commerce Website"
-      </h1>
+      <div>
+        <BrowserRouter>
+        <Routes>
+          <Route  path={"/" && "/home"} element={<Home />}></Route>
+          <Route path="/about" element={<About/>}></Route>    
+          <Route path="/contact" element={<Contact/>}></Route>    
+        </Routes>
+        </BrowserRouter>      
+      </div>
     </>
   );
 }
