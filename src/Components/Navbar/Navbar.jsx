@@ -1,36 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Navbar.css";
 import { FaCartShopping } from "react-icons/fa6";
+import { IoMdMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 
 function Navbar() {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleToggle = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <>
-      <div className="border-2 flex justify-between">
+      <header className="border-b-2 border-gray-300 flex justify-between m-2 lg:p-5 py-7">
         {/* navbar logo section  */}
-        <div>
-          <h1>
-            <span>Snap</span>Shop
-          </h1>
+        <div className="hover:scale-110 duration-500 ease-out">
+          <button
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            <h1 className="text-xl font-semibold text-blue-600">
+              <span className="text-2xl font-semibold text-orange-600">
+                Snap
+              </span>
+              Shop
+            </h1>
+          </button>
         </div>
 
         {/* navigation links section */}
         <div>
+          {/* Navbar for Desktop */}
+          <ul className="sm:flex hidden gap-10">
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+              Home
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+              Shop
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+              About
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+              Contact
+            </li>
+          </ul>
 
-        <ul className="flex gap-10">
-            <li>Home</li>
-            <li>Shop</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-
+          {/* Navbar for Mobile */}
+          <ul
+            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-[50%] text-center py-12 gap-10 ${
+              showMenu ? "top-[13%]" : "top-[-100%]"
+            }`}
+          >
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
+              Home
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
+              Shop
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
+              About
+            </li>
+            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
+              Contact
+            </li>
+          </ul>
         </div>
-
 
         {/* navbar button section */}
-        <div>
-            <button type='button' className=' '>Sign Up</button>
-            <button type='button' className=' '> <FaCartShopping /> </button>
+        <div className="flex">
+          <button
+            type="button"
+            className="w-24 h-10 bg-orange-600 text-white text-lg font-semibold rounded-lg mx-3 hover:bg-orange-700 "
+          >
+            Sign Up
+          </button>
+          <button type="button" className="text-2xl mx-5">
+            <FaCartShopping />
+          </button>
+
+          {/* Moblie  NavBar section  */}
+          {showMenu ? (
+            <IoMdClose className="text-4xl sm:hidden" onClick={handleToggle} />
+          ) : (
+            <IoMdMenu className="text-4xl sm:hidden" onClick={handleToggle} />
+          )}
         </div>
-      </div>
+      </header>
     </>
   );
 }
