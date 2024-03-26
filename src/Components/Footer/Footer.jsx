@@ -20,6 +20,12 @@ function Footer() {
                   window.open("https://github.com/ShivendraPandey26/", "_blank")
                 }
               />
+              <center className="text-xl font-semibold text-blue-600">
+              <span className="text-2xl font-semibold text-orange-600">
+                Snap
+              </span>
+              Shop
+            </center>
               <div className="text-gray-300 md:text-center">
                 {" "}
                 Explore SnapShop for all your shopping needs. Secure checkout,
@@ -90,7 +96,7 @@ function Footer() {
                 Email Contact
               </a>
             </div>
-            <div className="items-center w-60 lg:mb-10 pt-10">
+            <div className="items-center w-60 lg:mb-20 pt-10">
               <h1 className="flex flex-col text-xl text-blue-600 font-medium ">
                 {" "}
                 Contact Us{" "}
@@ -139,9 +145,9 @@ function Footer() {
         </div>
       </div>
       <div className="w-full sm:flex sm:items-center sm:justify-between">
-        <center className= "w-full text-white bg-black flex items-center justify-center font-medium py-4"> 
+        <center className= "w-full text-white bg-blue-600 flex items-center justify-center font-medium py-4"> 
           <span><FaRegCopyright className="me-2" />   </span> Copyright {new Date().getFullYear()} All Rights
-          Reserved.  Developed By <a href="https://github.com/ShivendraPandey26/ , '_blank" className="underline underline-offset-4 ms-2"> Shivendra Pandey</a>.
+          Reserved.  Developed By <a href="https://github.com/ShivendraPandey26/" target="_blank"  className="underline underline-offset-4 ms-2"> Shivendra Pandey</a>.
         </center>
       </div>
     </>
