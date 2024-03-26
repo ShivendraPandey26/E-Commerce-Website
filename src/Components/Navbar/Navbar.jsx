@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
+import {  Link } from "react-router-dom";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -34,38 +35,58 @@ function Navbar() {
         <div>
           {/* Navbar for Desktop */}
           <ul className="sm:flex hidden gap-10">
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-              Home
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-              Shop
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-              About
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-              Contact
-            </li>
+            <Link to="/">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Home
+              </li>
+            </Link>
+
+            <Link to="/products">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Products
+              </li>
+            </Link>
+
+            <Link to="/about">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                About
+              </li>
+            </Link>
+            <Link to="/contact">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Contact
+              </li>
+            </Link>
           </ul>
 
           {/* Navbar for Mobile */}
           <ul
-            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-[50%] text-center py-12 gap-10 ${
+            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-full text-center py-20 gap-10 ${
               showMenu ? "top-[13%]" : "top-[-100%]"
             }`}
           >
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
-              Home
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
-              Shop
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
-              About
-            </li>
-            <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-200">
-              Contact
-            </li>
+            <Link to="/">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Home
+              </li>
+            </Link>
+
+            <Link to="/products">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Products
+              </li>
+            </Link>
+
+            <Link to="/about">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                About
+              </li>
+            </Link>
+            <Link to="/contact">
+              <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
+                Contact
+              </li>
+            </Link>
           </ul>
         </div>
 
