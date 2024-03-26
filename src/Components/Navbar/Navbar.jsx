@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="border-b-2 border-gray-300 flex justify-between m-2 lg:p-5 py-7">
+      <header className="border-b-2 border-gray-300 flex justify-between lg:p-5 py-7">
         {/* navbar logo section  */}
         <div className="hover:scale-110 duration-500 ease-out">
           <button
@@ -43,7 +43,7 @@ function Navbar() {
 
             <Link to="/products">
               <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-                Products
+                All Products
               </li>
             </Link>
 
@@ -73,7 +73,7 @@ function Navbar() {
 
             <Link to="/products">
               <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
-                Products
+                All Products
               </li>
             </Link>
 
