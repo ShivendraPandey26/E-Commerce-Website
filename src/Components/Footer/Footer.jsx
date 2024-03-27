@@ -147,7 +147,7 @@ function Footer() {
       <div className="w-full sm:flex sm:items-center sm:justify-between">
         <center className= "w-full text-white bg-blue-600 flex items-center justify-center font-medium py-4"> 
           <span><FaRegCopyright className="me-2" />   </span> Copyright {new Date().getFullYear()} All Rights
-          Reserved.  Developed By <a href="https://github.com/ShivendraPandey26/" target="_blank"  className="underline underline-offset-4 ms-2"> Shivendra Pandey</a>.
+          Reserved.  Developed By <a href="https://github.com/ShivendraPandey26/" target="_blank"  className="underline underline-offset-4 ms-2 hover:scale-110 duration-300 transition-all"> Shivendra Pandey</a>
         </center>
       </div>
     </>
