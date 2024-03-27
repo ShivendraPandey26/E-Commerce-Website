@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="border-b-2 border-gray-300 flex justify-between lg:p-5 py-7">
+      <header className="border-b-2 border-gray-300 flex justify-between p-5 py-7">
         {/* navbar logo section  */}
         <div className="hover:scale-110 duration-500 ease-out">
           <button
