@@ -15,9 +15,9 @@ function About() {
             unique and beautiful items has led us to create this online store,
             where we can share our collection with a wider audience.
           </p>
-          <h2 className="text-left font-semibold text-orange-600 my-10">Our Story</h2>
+          <h2 className="text-left text-2xl font-serif font-bold text-orange-600 my-10">Our Story</h2>
 
-          <div className="lg:flex">
+          <div className="lg:flex mb-10">
 
           <div>
           <img src="./src/assets/about-01.jpg" alt="about image" height= {300} />
@@ -33,7 +33,7 @@ function About() {
 
           </div>
 
-          <div className="lg:flex">
+          <div className="lg:flex mb-10">
 
           <p className="text-xl text-[#32597d] font-medium mb-9 p-5 text-start leading-relaxed">
             We pride ourselves on our excellent customer service and are
