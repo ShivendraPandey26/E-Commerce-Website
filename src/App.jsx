@@ -4,6 +4,7 @@ import Contact from "./Components/Contact/Contact";
 import Home from "./Components/Home/Home";
 import Products from "./Components/Products/Products";
 import { BrowserRouter , Route, Routes } from "react-router-dom";
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 function App() {
 
