@@ -61,9 +61,8 @@ function Navbar() {
 
           {/* Navbar for Mobile */}
           <ul
-            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-full text-center py-20 gap-10 ${
-              showMenu ? "top-[13%]" : "top-[-100%]"
-            }`}
+            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-full text-center py-20 gap-10 ${showMenu ? "top-[13%]" : "top-[-100%]"
+              }`}
           >
             <Link to="/">
               <li className="text-xl cursor-pointer font-medium hover:text-orange-600 duration-100">
@@ -92,21 +91,25 @@ function Navbar() {
 
         {/* navbar button section */}
         <div className="flex">
-          <button
-            type="button"
-            className="w-24 h-10 bg-orange-600 text-white text-lg font-semibold rounded-lg mx-3 hover:bg-orange-700 "
-          >
-            Sign Up
-          </button>
-          <button type="button" className="text-2xl mx-5">
+          <Link to="/signup">
+            <button
+              type="button"
+              className="w-24 h-10 bg-orange-600 text-white text-lg font-semibold rounded-lg mx-3 hover:bg-orange-700 "
+            >
+              Sign Up
+            </button>
+          </Link>
+
+
+          <button type="button" className="text-2xl mx-5 cursor-pointer">
             <FaCartShopping />
           </button>
 
           {/* Moblie  NavBar section  */}
           {showMenu ? (
-            <IoMdClose className="text-4xl sm:hidden" onClick={handleToggle} />
+            <IoMdClose className="text-4xl sm:hidden cursor-pointer" onClick={handleToggle} />
           ) : (
-            <IoMdMenu className="text-4xl sm:hidden" onClick={handleToggle} />
+            <IoMdMenu className="text-4xl sm:hidden cursor-pointer  " onClick={handleToggle} />
           )}
         </div>
       </header>
