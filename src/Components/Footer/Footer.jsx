@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className="flex items-center justify-evenly bg-black p-10  ">
+      <div className="flex items-center justify-evenly bg-black p-10">
         <div className="m-5 max-w-5xl">
           <div className="flex flex-col items-center justify-around md:flex-row">
             <div className="items-center m-1 me-5 justify-items-start w-60">
@@ -145,12 +145,14 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="w-full sm:flex sm:items-center sm:justify-between">
-        <center className= "w-full text-white bg-blue-600 flex items-center justify-center font-medium py-4"> 
-          <span><FaRegCopyright className="me-2" />   </span> Copyright {new Date().getFullYear()} All Rights
-          Reserved.  Developed By <a href="https://github.com/ShivendraPandey26/" target="_blank"  className="underline underline-offset-4 ms-2 hover:scale-110 duration-300 transition-all"> Shivendra Pandey</a>
+      
+        <center className= "w-full text-white bg-blue-600 font-medium py-4"> 
+        <samp>
+        <span className="font-bold font-mono text-sm">ⓒ</span>Copyright {new Date().getFullYear()} All Rights
+          Reserved. Developed By <a href="https://github.com/ShivendraPandey26/" target="_blank"  className="underline underline-offset-4"> Shivendra Pandey</a>
+          </samp>
         </center>
-      </div>
+     
     </>
   );
 }
