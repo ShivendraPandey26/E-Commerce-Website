@@ -3,6 +3,8 @@ import Layout from "../Layout/Layout";
 import ImageSlider from "./ImageSlider";
 import FourDiv from "./FourDiv";
 import PopularProducts from "./PopularProducts";
+import Gallery from "./Gallery";
+import Testimonials from "./Testimonials";
 
 function Home() {
   return (
@@ -13,6 +15,8 @@ function Home() {
           <ImageSlider />
           <FourDiv />
           <PopularProducts />
+          <Gallery />
+          <Testimonials />
         </div>
       </Layout>
     </>
