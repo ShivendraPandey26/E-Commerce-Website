@@ -6,6 +6,7 @@ import {
   FaQuora,
   FaRegCopyright,
 } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -37,19 +38,19 @@ function Footer() {
                 {" "}
                 Product{" "}
               </h1>
-              <a href="#" className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
+              <Link to='/' className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
                 Home
-              </a>
+              </Link>
               
-              <a href="#" className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
-                Shop
-              </a>
-              <a href="#" className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
+              <Link to= '/products' className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
+              All Products
+              </Link>
+              <Link to= '/about' className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
                 About
-              </a>
-              <a href="#" className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
+              </Link>
+              <Link to= '/contact' className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
                 Contact
-              </a>
+              </Link>
               <a href="#" className="flex hover:text-blue-600 text-gray-500 hover:ps-2 duration-200 ease-linear">
                 Chrome Extensions
               </a>
