@@ -28,7 +28,7 @@ function Contact() {
             <h2 className="text-5xl font-semibold mb-10 text-[#31587c] font-serif">
               Contact
             </h2>
-            <p className="text-lg text-[#32597d] font-sans mb-4 leading-relaxed md:w-[50%] w-[80%] mx-auto">
+            <p className="text-lg text-[#32597d] font-sans mb-4 leading-relaxed md:w-[50%] w-[100%] mx-auto">
               We value your feedback! Feel free to reach out with any questions
               or comments you have. Your message matters to us, and we'll make
               sure to reply to you at our earliest convenience.
