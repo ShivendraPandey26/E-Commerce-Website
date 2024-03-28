@@ -5,6 +5,8 @@ import Home from "./Components/Home/Home";
 import Products from "./Components/Products/Products";
 import { BrowserRouter , Route, Routes } from "react-router-dom";
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
+import SignUP from "./Components/SignUP Page/SignUP";
+import Login from "./Components/SignUP Page/Login";
 
 function App() {
 
@@ -18,7 +20,9 @@ function App() {
           <Route  path="/home" element={<Home />} />
           <Route  exact path ='/products' element={<Products />}/>
           <Route path="/about" element={<About/>}></Route>    
-          <Route path="/contact" element={<Contact/>}></Route>    
+          <Route path="/contact" element={<Contact/>}></Route> 
+          <Route path="/signup"  element={<SignUP />}></Route> 
+          <Route path="/login"  element={<Login />}></Route> 
         </Routes>
         </BrowserRouter>      
       </div>
