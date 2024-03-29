@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { CgCloseO } from "react-icons/cg";
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [showAnswer, setShowAnswer] = useState("");
   const [signUpValue, setSignUpValue] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleSignUp = () => {
@@ -27,7 +28,7 @@ function SignUp() {
     setSignUpValue({
       name: "",
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -40,16 +41,18 @@ function SignUp() {
       {showAnswer === "" ? (
         <div className="w-screen h-screen bg-gradient-to-tr from-cyan-300 to-black">
           <div className="text-right p-10 text-white">
-            <button onClick={() => (window.location.href = "/")}>
-              <CgCloseO size={50} />
-            </button>
+            <Link to="/">
+              <button>
+                <CgCloseO size={50} />
+              </button>
+            </Link>
           </div>
 
           <div className="flex items-center justify-center">
             <div className="w-full lg:w-4/12 h-full bg-white rounded-lg">
               <div className="m-8 text-5xl text-blue-700 flex flex-col gap-5 items-center">
                 <div>
-                  <h1>Sign Up</h1>
+                  <h1 className="underline underline-offset-[20px]">Sign Up</h1>
                 </div>
                 <div className="under-line"></div>
               </div>
@@ -96,12 +99,17 @@ function SignUp() {
               </div>
 
               <div className="text-center m-8 flex justify-around">
-                <button className="w-[40%] bg-blue-600 p-5 rounded-3xl font-bold text-2xl text-white hover:bg-blue-700" onClick={handleSignUp}>
+                <button
+                  className="w-36 h-16 bg-blue-600 p-2 rounded-3xl font-bold text-2xl text-white hover:bg-blue-700"
+                  onClick={handleSignUp}
+                >
                   Sign Up
                 </button>
-                <button className="w-[40%] bg-gray-300 p-5 rounded-3xl font-bold text-2xl text-black hover:bg-gray-400" onClick={() => (window.location.href = "/login")}>
-                  Login
-                </button>
+                <Link to="/login">
+                  <button className="w-36 h-16 bg-gray-300 p-2 rounded-3xl font-bold text-2xl text-black hover:bg-gray-400">
+                    Login
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
