@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="border-b-2 border-gray-300 flex justify-between p-5 py-7">
+      <header className= "sticky left-0 top-0 bg-white  border-b-2 border-gray-300 flex justify-between items-center p-5 py-7">
         {/* navbar logo section  */}
         <div className="hover:scale-110 duration-500 ease-out">
           <button
@@ -90,7 +90,7 @@ function Navbar() {
         </div>
 
         {/* navbar button section */}
-        <div className="flex">
+        <div className="flex justify-between items-center">
           <Link to="/signup">
             <button
               type="button"
@@ -100,10 +100,11 @@ function Navbar() {
             </button>
           </Link>
 
-
+              <Link  to="/cart">
           <button type="button" className="text-2xl mx-5 cursor-pointer">
             <FaCartShopping />
           </button>
+          </Link>
 
           {/* Moblie  NavBar section  */}
           {showMenu ? (
