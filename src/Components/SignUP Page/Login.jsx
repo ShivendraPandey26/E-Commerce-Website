@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { CgCloseO } from "react-icons/cg";
 import { FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-
+import { Link } from "react-router-dom";
 
 function Login() {
   const [showAnswer, setShowAnswer] = useState("");
   const [loginValue, setLoginValue] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleLogin = () => {
@@ -26,7 +26,7 @@ function Login() {
     setTimeout(() => setShowAnswer(""), 1000);
     setLoginValue({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -39,16 +39,18 @@ function Login() {
       {showAnswer === "" ? (
         <div className="w-screen h-screen bg-gradient-to-tr from-cyan-300 to-black">
           <div className="text-right p-10 text-white">
-            <button onClick={() => (window.location.href = "/")}>
-              <CgCloseO size={50} />
-            </button>
+            <Link to="/">
+              <button>
+                <CgCloseO size={50} />
+              </button>
+            </Link>
           </div>
 
-          <div className="flex items-center justify-center h-[80%]">
-            <div className="w-full lg:w-4/12 h-full bg-white rounded-lg">
+          <div className="flex items-center justify-center">
+            <div className="w-full lg:w-4/12 h-auto bg-white rounded-lg">
               <div className="m-8 text-5xl text-blue-700 flex flex-col gap-5 items-center">
                 <div>
-                  <h1>Login</h1>
+                  <h1 className="underline underline-offset-[20px]">Login</h1>
                 </div>
                 <div className="under-line"></div>
               </div>
@@ -81,11 +83,16 @@ function Login() {
                 </div>
               </div>
 
-              <div className=" m-8 h-full fixed">
-                <button className="w-32 absolute left-4 top-20 bg-gray-300 p-5 rounded-3xl font-bold text-2xl text-black hover:bg-gray-400" onClick={() => (window.location.href = "/signup")}>
-                  Sign Up
-                </button>
-                <button className="w-32 absolute left-44 top-20 bg-blue-600 p-5 rounded-3xl font-bold text-2xl text-white hover:bg-blue-700" onClick={handleLogin}>
+              <div className="text-center m-8 mt-28 flex justify-around">
+                <Link to="/signup">
+                  <button className="w-36 h-16 bg-gray-300 p-2 rounded-3xl font-bold text-2xl text-black hover:bg-gray-400">
+                    Sign Up
+                  </button>
+                </Link>
+                <button
+                  className="w-36 h-16  bg-blue-600 p-2 rounded-3xl font-bold text-2xl text-white hover:bg-blue-700"
+                  onClick={handleLogin}
+                >
                   Login
                 </button>
               </div>
