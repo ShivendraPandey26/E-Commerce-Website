@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import useProduct from "../Context/ProductContext";
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
+
+  const { AddToCart } = useProduct();
 
   // url of All  Products API = https://dummyjson.com/products        ++++++++++++++++++++++++++++++++++++++++++++++++++++++
   useEffect(() => {
@@ -37,6 +40,8 @@ function AllProducts() {
             image={item.thumbnail}
             btn={'Add To  Cart'}
             DiscountPercentage={item.discountPercentage}
+            brandName={item.brand}
+            AddToCartCard ={()=>{AddToCart(item)}}
           />
        
         ))}
