@@ -51,24 +51,23 @@ function Products() {
     <Layout>
       <div className="bg-[#eaf5f5]">
         {/* product Navbar section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-        <div className="w-screen h-10 border-2 flex items-center justify-between bg-blue-300 mb-20">
-          <div className="lg:w-[50vw] ml-10">
-            <input type="search" className="h-9 w-[30%] rounded-lg" />
+        <div className="w-full h-20 flex items-center justify-around flex-wrap bg-blue-300 mb-20">
+
+          <div className="ml-10">
+            <input type="search" className=" w-52 h-9 rounded-s-lg" />
             <button
               type="button"
-              className="w-24 h-8 bg-orange-600 text-white text-lg font-semibold rounded-lg mx-3 hover:bg-orange-700 "
+              className="w-24 h-9 bg-orange-600 text-white text-lg font-semibold rounded-e-lg hover:bg-orange-700 "
             >
               Search
             </button>
           </div>
-
-          <div>
-            {/* Map through the array of categories and create a button for each one */}
+        
 
             {/* allCategories section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++ */}
-            <div className="lg:w-[50vw]">
+            <div className="">
               <select
-                className="bg-[#eaf5f5] text-center h-7 w-[40%] ml-44 rounded-lg capitalize"
+                className="bg-[#eaf5f5] text-center w-56 h-7 rounded-lg capitalize"
                 onChange={(event) => handleClickCategory(event.target.value)}
               >
                 <option disabled selected>
@@ -84,14 +83,13 @@ function Products() {
               </select>
             </div>
           </div>
-        </div>
 
         {/* clicked product section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= */}
 
         <div>
           {/* Hidden selected products heading when no category selected */}
           <h1
-            className={`text-5xl text-center font-semibold mb-10 text-[#31587c] font-serif underline underline-offset-[15px] capitalize ${
+            className={`text-5xl text-center font-semibold mb-10 text-[#31587c] font-serif underline capitalize ${
               clickProduct === "" ? "hidden" : "block"
             }`}
           >
