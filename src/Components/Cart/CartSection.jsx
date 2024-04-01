@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import useProduct from "../Context/ProductContext";
 import Layout from "../Layout/Layout";
 
 function CartSection() {
-  const { product, addToCart } = useProduct();
+  const { setCartProduct, cartProduct, addToCart } = useProduct();
+
 
   return (
     <Layout>
+      
       <div className="bg-[#dbecec] h-full">
         <div className="pb-20"></div>
 
@@ -23,8 +25,21 @@ function CartSection() {
           </div>
 
           <div className="w-full h-[76%] overflow-y-scroll no-scrollbar">
-            <ProductCard 
-            brandName={'shivendra'}/>
+            {/* <ProductCard /> */}
+
+            {cartProduct.map((item, index) => (
+              <ProductCard
+              key={index} 
+              image= {item.thumbnail}
+              brandName={item.brand}
+              price={item.price+".00"}
+              title={item.title}
+              description={item.description}
+              rating={item.rating}
+              quantity={item.quantity}
+               />
+            ))}
+            
           </div>
 
           <div className="flex items-center justify-end w-full h-[10%] lg:ps-[45%] border-t-2 border-gray-400">
@@ -37,7 +52,7 @@ function CartSection() {
               sub - total
             </h1>
             <h1 className="text-[#32597d] capitalize font-serif lg:text-2xl md:text-xl sm:text-xl text-[0.8rem] font-extrabold tracking-widest m-8">
-            <span className="text-2xl relative top-1">₹</span>999.00
+            <span className="text-2xl relative top-1">₹</span>{'price'}
             </h1>
           </div>
         </div>
@@ -53,7 +68,7 @@ function CartSection() {
 
             <div className="flex items-center justify-between p-4">
               <h1 className="text-[#32597d] text-lg font-semibold">Total items</h1>
-              <p className="text-[#305980] text-xl">9</p>
+              <p className="text-[#305980] text-xl">{cartProduct.length}</p>
             </div>
 
             <div className="flex items-center justify-between px-4">
