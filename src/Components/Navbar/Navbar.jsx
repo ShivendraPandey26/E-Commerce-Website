@@ -4,9 +4,12 @@ import { FaCartShopping } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
+import useProduct from "../Context/ProductContext"
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+
+  const { setCartProduct, cartProduct, addToCart } = useProduct();
 
   const handleToggle = () => {
     setShowMenu(!showMenu);
@@ -102,7 +105,11 @@ function Navbar() {
 
               <Link  to="/cart">
           <button type="button" className="text-2xl mx-5 cursor-pointer">
-            <FaCartShopping />
+            <span className=" text-red-600 text-2xl font-extrabold mx-auto">{cartProduct.length}</span>
+            <FaCartShopping
+             size={30}
+             className="relative bottom-2"
+             /> 
           </button>
           </Link>
 
