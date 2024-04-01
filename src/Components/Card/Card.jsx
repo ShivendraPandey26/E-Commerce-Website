@@ -3,7 +3,7 @@ import React from "react";
 const Card = ({ title, price, image, rating, btn, DiscountPercentage, brandName, AddToCartCard}) => {
   return (
     <>
-      <div className="lg:w-64 md:w-64 sm:w-40 w-40 h-[25rem] bg-white shadow-md rounded-lg p-4 hover:scale-110 duration-300 ease-in">
+      <div className="lg:w-64 md:w-64 sm:w-40 w-40 h-[25rem] bg-white shadow-md rounded-lg p-4 duration-300 ease-in">
         <img
           src={image}
           alt={title}
