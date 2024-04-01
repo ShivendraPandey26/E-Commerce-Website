@@ -15,16 +15,30 @@ function App() {
 
   const [cartProduct,  setCartProduct] = useState([]);
 
-  const AddToCart  = (product) =>{
-    setCartProduct( [...cartProduct , product] );
-    console.log(cartProduct);
+  const AddToCart = (product) => {
+    const existingProductIndex = cartProduct.findIndex((item) => item.id === product.id);
+
+    if (existingProductIndex !== -1) {
+        // If the product already exists in the cart, update its quantity
+        const updatedCart = [...cartProduct];
+        updatedCart[existingProductIndex].quantity += 1;
+        setCartProduct(updatedCart);
+    } else {
+        // If the product doesn't exist in the cart, add it with quantity 1
+        setCartProduct([...cartProduct, { ...product, quantity: 1 }]);
+    }
   };
+
+
+  const handleQuantity = (event) => {
+    
+  }
 
 
 
 
   return (
-        <ProductContextProvider value = {{AddToCart, cartProduct}} >
+        <ProductContextProvider value = {{AddToCart, cartProduct, setCartProduct, handleQuantity}} >
       <div>
         <BrowserRouter>
         <Routes>
@@ -43,4 +57,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default App
