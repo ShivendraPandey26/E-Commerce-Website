@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
 import Card from "../Card/Card";
 import AllProducts from "./AllProducts";
+import useProduct from "../Context/ProductContext";
 
 function Products() {
   const [allCategories, setAllCategories] = useState([]);
   const [clickProduct, setClickProduct] = useState("");
   const [productsIteams, setProductsIteams] = useState([]);
+
+  const { cartProduct, AddToCart } = useProduct();
 
   // url of categories = https://dummyjson.com/products/categories *********************************************************************************************************
   useEffect(() => {
@@ -52,7 +55,6 @@ function Products() {
       <div className="bg-[#eaf5f5]">
         {/* product Navbar section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
         <div className="w-full h-20 flex items-center justify-around flex-wrap bg-blue-300 mb-20">
-
           <div className="ml-10">
             <input type="search" className=" w-52 h-9 rounded-s-lg" />
             <button
@@ -62,27 +64,24 @@ function Products() {
               Search
             </button>
           </div>
-        
 
-            {/* allCategories section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++ */}
-            <div className="">
-              <select
-                className="bg-[#eaf5f5] text-center w-56 h-7 rounded-lg capitalize"
-                onChange={(event) => handleClickCategory(event.target.value)}
-              >
-                <option disabled selected>
-                  Select Category
+          {/* allCategories section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++ */}
+          <div className="">
+            <select
+              className="bg-[#eaf5f5] text-center w-56 h-7 rounded-lg capitalize"
+              onChange={(event) => handleClickCategory(event.target.value)}
+            >
+              <option disabled selected>
+                Select Category
+              </option>
+              {allCategories.map((item, index) => (
+                <option value={item} key={index}>
+                  {item}
                 </option>
-                {allCategories.map((item, index) => (
-                  <option 
-                  value={item} 
-                  key={index}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
+              ))}
+            </select>
           </div>
+        </div>
 
         {/* clicked product section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= */}
 
@@ -106,6 +105,10 @@ function Products() {
                   image={item.thumbnail}
                   btn={"Add To  Cart"}
                   DiscountPercentage={item.discountPercentage}
+                  // quantity={item.quantity}
+                  AddToCartCard={() => {
+                    AddToCart(item);
+                  }}
                 />
               </div>
             ))}
