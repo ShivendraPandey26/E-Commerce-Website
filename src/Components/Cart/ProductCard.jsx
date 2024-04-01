@@ -1,29 +1,36 @@
 import React from "react";
 import useProduct from "../Context/ProductContext";
 
+function ProductCard({
+  image,
+  brandName,
+  price,
+  title,
+  description,
+  rating,
+  quantity
+}) {
+  const { setCartProduct, cartProduct, addToCart } = useProduct();
 
-function ProductCard({image, brandName, price, title, description, rating}) {
-
-  const { product, addToCart } = useProduct();
 
 
   return (
     <section className="text-gray-600 body-font w-full mb-5 ">
       <div className="container px-5 py-2 mx-auto  lg:h-80">
-        <div className="lg:w-4/5 mx-auto flex flex-wrap lg:h-full items-center border border-gray-400 rounded-xl">
+        <div className="lg:w-full mx-auto flex flex-wrap lg:h-full items-center border border-gray-400 rounded-xl">
           <img
             alt="ecommerce"
-            className="lg:w-auto w-full h-full lg:h-auto object-cover object-center rounded"
-            src= {image}
+            className="lg:w-[35rem]  w-full h-full lg:h-auto object-cover object-center rounded-xl"
+            src={image}
           />
-          <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 p-2 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
               {brandName}
             </h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {title}
             </h1>
-            <div className="flex mb-2">
+            <div className="flex items-center mb-2">
               {[...Array(4)].map((_, index) => (
                 <svg
                   key={index}
@@ -38,9 +45,7 @@ function ProductCard({image, brandName, price, title, description, rating}) {
               ))}
               <span className="text-gray-600 ml-1">{rating} Reviews</span>
             </div>
-            <p className="leading-relaxed mb-2">
-              {description}
-            </p>
+            <p className="leading-relaxed mb-2">{description}</p>
             <div className="flex items-center mb-2">
               <div className="relative mr-4">
                 <label
@@ -51,7 +56,7 @@ function ProductCard({image, brandName, price, title, description, rating}) {
                 </label>
                 <select
                   id="size-select"
-                  className="rounded border appearance-none border-gray-300 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-sm"
+                  className=" w-10 text-center rounded border appearance-none border-gray-300 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-sm"
                 >
                   <option>SM</option>
                   <option>M</option>
@@ -66,22 +71,22 @@ function ProductCard({image, brandName, price, title, description, rating}) {
                 >
                   Quantity
                 </label>
-                <select
-                  id="quantity-select"
-                  className="rounded border appearance-none border-gray-300 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-sm"
-                >
-                  {[...Array(5)].map((_, index) => (
-                    <option key={index} value={index + 1}>
-                      {index + 1}
-                    </option>
-                  ))}
-                </select>
+
+                <input
+                 type="number" 
+                 className="w-12  text-center rounded"
+                 min={1}
+                 max={50}
+                 value={quantity}
+                 onChange={() => console.log(cartProduct)}
+                 />
+
               </div>
               <div className="flex-grow"></div>
             </div>
             <div className="flex items-center">
               <span className="title-font font-medium text-lg text-gray-900">
-                {price}
+                ₹{price}
               </span>
             </div>
             <div className=" text-red-500 hover:text-red-700 hover:text-lg duration-500 ease-out">
