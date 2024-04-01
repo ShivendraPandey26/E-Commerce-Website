@@ -13,6 +13,27 @@ function ProductCard({
   const { setCartProduct, cartProduct, addToCart } = useProduct();
 
 
+  // function for handle increase the  product quantity in the card.
+  const handleQuantityValue = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    if (!isNaN(newQuantity) && newQuantity >= 1 && newQuantity <= 50) {
+      const updatedCartProduct = cartProduct.map((item) => {
+        // Check if the current item matches the one being edited
+        if (item.title === title) {
+          // Update the quantity for the matched item
+          return { ...item, quantity: newQuantity };
+        }
+        return item; // Return unchanged item if it's not the one being edited
+      });
+      setCartProduct(updatedCartProduct);
+    }
+  };
+
+  // filter section  for handle the button of remove 
+  const  handleRemoveCard = () => {
+    let filteredProducts = cartProduct.filter((product)=> product.title!==title )
+    setCartProduct(filteredProducts);
+  };
 
   return (
     <section className="text-gray-600 body-font w-full mb-5 ">
@@ -73,13 +94,13 @@ function ProductCard({
                 </label>
 
                 <input
-                 type="number" 
-                 className="w-12  text-center rounded"
-                 min={1}
-                 max={50}
-                 value={quantity}
-                 onChange={() => console.log(cartProduct)}
-                 />
+                  type="number"
+                  className="w-12  text-center rounded"
+                  min={1}
+                  max={50}
+                  value={quantity}
+                  onChange={handleQuantityValue}
+                />
 
               </div>
               <div className="flex-grow"></div>
@@ -90,7 +111,9 @@ function ProductCard({
               </span>
             </div>
             <div className=" text-red-500 hover:text-red-700 hover:text-lg duration-500 ease-out">
-              <button>Remove</button>
+              <button
+              onClick={handleRemoveCard}
+               >Remove</button>
             </div>
           </div>
         </div>
