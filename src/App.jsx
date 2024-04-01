@@ -30,15 +30,10 @@ function App() {
   };
 
 
-  const handleQuantity = (event) => {
-    
-  }
-
-
 
 
   return (
-        <ProductContextProvider value = {{AddToCart, cartProduct, setCartProduct, handleQuantity}} >
+        <ProductContextProvider value = {{AddToCart, cartProduct, setCartProduct}} >
       <div>
         <BrowserRouter>
         <Routes>
