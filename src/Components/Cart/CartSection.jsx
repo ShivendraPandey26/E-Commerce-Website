@@ -6,7 +6,6 @@ import Layout from "../Layout/Layout";
 function CartSection() {
   const { cartProduct } = useProduct();
   const [promoInput, setPromoInput] = useState("");
-   
 
   const subTotal = () => {
     const initialValue = 0;
@@ -27,15 +26,20 @@ function CartSection() {
       const discount = (originalPrice * discountPercentage) / 100;
       const discountedPrice = originalPrice - discount;
       return parseInt(discountedPrice);
-    } 
-    else {
-      
-     return null; 
+    } else {
+      return null;
     }
   };
 
   return (
     <Layout>
+      {cartProduct == '' ? 
+      <div className="w-full h-[90vh] text-center bg-[#eaf5f5] "> 
+        <h2 className="text-5xl font-semibold mb-10 text-[#31587c] font-serif pt-[15%]">
+        Oops! Your Shopping Bag is Empty.
+            </h2>
+         </div>
+      :
       <div className="bg-[#dbecec] h-full">
         <div className="pb-20"></div>
 
@@ -73,6 +77,8 @@ function CartSection() {
           </div>
         </div>
 
+        {/*   total  amount and checkout section  */}
+
         <div className="lg:w-[35%] md:w-1/2 sm:w-3/4 w-11/12 h-auto lg:ms-[60%] md:ms-[60%] sm:mx-auto mx-auto bg-transparent rounded-lg shadow-2xl shadow-gray-700">
           <div className="w-full h-auto">
             <h1 className="capitalize text-2xl font-serif font-bold p-5 text-[#32597d]">
@@ -100,32 +106,35 @@ function CartSection() {
               </h1>
               <div>
                 <div>
-              <input
-                type="text"
-                placeholder="Enter PromoCode"
-                className="p-2 rounded-md"
-                value={promoInput}
-                onChange={(e) => setPromoInput(e.target.value)}
-              />
-              </div>
-              
-              {promoInput !== 'shivendra' ?
-                promoInput !== '' && <div className="text-center text-red-600">{ "Invalid Promo Code!"}</div> : null
-              }
+                  <input
+                    type="text"
+                    placeholder="Enter PromoCode"
+                    className="p-2 rounded-md"
+                    value={promoInput}
+                    onChange={(e) => setPromoInput(e.target.value)}
+                  />
+                </div>
+
+                {promoInput !== "shivendra"
+                  ? promoInput !== "" && (
+                      <div className="text-center text-red-600">
+                        {"Invalid Promo Code!"}
+                      </div>
+                    )
+                  : null}
               </div>
             </div>
 
-            <div className="flex items-center justify-center p-5 border-t border-b border-gray-400">
+            <div className="flex items-center justify-center p-5 border-b border-gray-400">
               <button
                 className="w-[80%] h-12 bg-orange-500 hover:bg-orange-600 rounded-3xl text-2xl text-white"
                 onClick={handleCheckout}
               >
                 Apply
               </button>
-              
             </div>
 
-            <div className="flex items-center justify-between p-5">
+            <div className="flex items-center justify-between p-5 border-b border-gray-400">
               <h1 className="capitalize text-2xl font-serif font-bold text-[#32597d]">
                 Total Cost
               </h1>
@@ -134,11 +143,38 @@ function CartSection() {
                 {handleCheckout() || subTotal()}.00
               </h1>
             </div>
+
+            <div className="p-5">
+              <h1 className="text-lg font-extrabold">
+                WE ACCEPT:
+                </h1>
+              <div className="flex items-center justify-evenly">
+                <img
+                  src="./src/assets/Credit-Icon/ebay.png"
+                  alt="Credit-Icon"
+                />
+                <img
+                  src="./src/assets/Credit-Icon/paypal.png"
+                  alt="Credit-Icon"
+                />
+                <img
+                  src="./src/assets/Credit-Icon/visa.png"
+                  alt="Credit-Icon"
+                />
+                <img
+                  src="./src/assets/Credit-Icon/mastercard.png"
+                  alt="Credit-Icon"
+                />
+              </div>
+              <p className="text-base font-semibold">Promo code is <b className="underline">shivendra</b>.</p>
+            </div>
           </div>
         </div>
 
         <div className="p-5"></div>
       </div>
+      
+      }
     </Layout>
   );
 }
