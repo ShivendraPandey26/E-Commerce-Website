@@ -6,8 +6,8 @@ function Gallery() {
       <section className="text-gray-600 body-font ">
         <div className="container px-5 py-12 mx-auto flex flex-wrap">
           <div className="w-full mb-10 text-center ">
-            <h2 className="text-4xl font-semibold mb-10 text-[#31587c] font-serif text-center underline underline-offset-8">
-              Gallery
+            <h2 className="text-4xl font-semibold mb-10 text-[#31587c] font-sans text-center tracking-widest">
+            Fashion New Trends
             </h2>
           </div>
           <div className="flex flex-wrap md:-m-2 -m-1">
