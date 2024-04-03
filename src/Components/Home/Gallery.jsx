@@ -11,7 +11,7 @@ function Gallery() {
             </h2>
           </div>
           <div className="flex flex-wrap md:-m-2 -m-1">
-            <div className="flex flex-wrap w-1/2 hover:skew-y-6 duration-300 ease-in-out">
+            <div className="flex flex-wrap w-1/2">
               <div className="md:p-2 p-1 w-1/2">
                 <img
                   alt="gallery"
@@ -34,7 +34,7 @@ function Gallery() {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap w-1/2 hover:skew-y-[-6deg] duration-300 ease-in-out">
+            <div className="flex flex-wrap w-1/2 ">
               <div className="md:p-2 p-1 w-full">
                 <img
                   alt="gallery"
