@@ -6,11 +6,12 @@ import PopularProducts from "./PopularProducts";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 
+
 function Home() {
   return (
     <>
       <Layout>
-        {/* Home page start */}
+        {/* Home page */}
         <div className="bg-[#eaf5f5]">
           <ImageSlider />
           <FourDiv />
