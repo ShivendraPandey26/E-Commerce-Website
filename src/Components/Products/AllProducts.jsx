@@ -25,25 +25,25 @@ function AllProducts() {
 
   return (
     <>
-      <h2 className="text-5xl text-center font-semibold mb-10 text-[#31587c] font-serif underline underline-offset-8">
-        All  Products
+      <h2 className="text-4xl font-semibold mb-10 text-[#31587c] font-sans text-center tracking-widest">
+        All Products
       </h2>
 
       <div className="w-screen h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap ">
         {products.map((item, index) => (
-            
           <Card
             key={index}
             title={item.title}
             price={item.price}
             rating={item.rating}
             image={item.thumbnail}
-            btn={'Add To  Cart'}
+            btn={"Add To  Cart"}
             DiscountPercentage={item.discountPercentage}
             brandName={item.brand}
-            AddToCartCard ={()=>{AddToCart(item)}}
+            AddToCartCard={() => {
+              AddToCart(item);
+            }}
           />
-       
         ))}
       </div>
     </>
