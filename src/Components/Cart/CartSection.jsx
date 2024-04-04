@@ -148,11 +148,7 @@ function CartSection() {
               <h1 className="text-lg font-extrabold">
                 WE ACCEPT:
                 </h1>
-              <div className="flex items-center justify-evenly">
-                <img
-                  src="./src/assets/Credit-Icon/ebay.png"
-                  alt="Credit-Icon"
-                />
+              <div className="flex items-center justify-around">
                 <img
                   src="./src/assets/Credit-Icon/paypal.png"
                   alt="Credit-Icon"
@@ -166,7 +162,7 @@ function CartSection() {
                   alt="Credit-Icon"
                 />
               </div>
-              <p className="text-base font-semibold">Promo code is <b className="underline">shivendra</b>.</p>
+              <p className="text-base font-semibold">Promo code is <b className="underline">{promoCode}</b>.</p>
             </div>
           </div>
         </div>
