@@ -10,6 +10,7 @@ import Login from "./Components/SignUP Page/Login";
 import CartSection from "./Components/Cart/CartSection";
 import { ProductContextProvider } from "./Components/Context/ProductContext";
 import { useState } from "react";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/login"  element={<Login />}></Route> 
           <Route path="/cart" element={<CartSection />} />
         </Routes>
+        <Toaster />
         </BrowserRouter>    
         </div>
         </ProductContextProvider>  
