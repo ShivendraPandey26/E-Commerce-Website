@@ -125,16 +125,9 @@ function CartSection() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center p-5 border-b border-gray-400">
-              <button
-                className="w-[80%] h-12 bg-orange-500 hover:bg-orange-600 rounded-3xl text-2xl text-white"
-                onClick={handleCheckout}
-              >
-                Apply
-              </button>
-            </div>
+            
 
-            <div className="flex items-center justify-between p-5 border-b border-gray-400">
+            <div className="flex items-center justify-between p-5 mt-5 border-b border-t border-gray-400 ">
               <h1 className="capitalize text-2xl font-serif font-bold text-[#32597d]">
                 Total Cost
               </h1>
@@ -142,6 +135,14 @@ function CartSection() {
                 <span className="text-2xl ">₹</span>
                 {handleCheckout() || subTotal()}.00
               </h1>
+            </div>
+
+            <div className="flex items-center justify-center p-5 border-gray-400">
+              <button
+                className="w-[80%] h-12 bg-orange-500 hover:bg-orange-600 rounded-3xl text-2xl text-white"
+              >
+                Proceed to Buy
+              </button>
             </div>
 
             <div className="p-5">
