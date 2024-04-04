@@ -41,7 +41,7 @@ function ProductCard({
         <div className="lg:w-full mx-auto flex flex-wrap lg:h-full items-center border border-gray-400 rounded-xl">
           <img
             alt="ecommerce"
-            className="lg:w-[35rem]  w-full h-full lg:h-auto object-cover object-center rounded-xl"
+            className="w-[30rem] h-[18.5rem] object-cover overflow-hidden rounded-lg"
             src={image}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 p-2 lg:mt-0">
