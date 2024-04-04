@@ -7,11 +7,12 @@ import useProduct from "../Context/ProductContext";
 function Products() {
   const [allCategories, setAllCategories] = useState([]);
   const [clickProduct, setClickProduct] = useState("");
-  const [productsIteams, setProductsIteams] = useState([]);
+  const [productsItems, setProductsItems] = useState([]);
+  const [userInput, setUserInput] = useState("");
+  const [searchItems, setSearchItems] = useState([]);
 
-  const { cartProduct, AddToCart } = useProduct();
+  const { AddToCart } = useProduct();
 
-  // url of categories = https://dummyjson.com/products/categories *********************************************************************************************************
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,14 +25,11 @@ function Products() {
     };
     fetchData();
   }, []);
-  // console.log(allCategories);
 
   const handleClickCategory = (categoryId) => {
     setClickProduct(categoryId);
-    // console.log(categoryId);
   };
 
-  // url of  products by category = https://dummyjson.com/products/category/smartphones***********************************************************************************************
   useEffect(() => {
     const fetchClickProduct = async () => {
       try {
@@ -40,8 +38,7 @@ function Products() {
             `https://dummyjson.com/products/category/${clickProduct}`
           );
           let productByCategory = await response.json();
-          setProductsIteams(productByCategory.products);
-          // console.log(productByCategory.products);
+          setProductsItems(productByCategory.products);
         }
       } catch (error) {
         console.log("Error", error);
@@ -50,22 +47,53 @@ function Products() {
     fetchClickProduct();
   }, [clickProduct]);
 
+  const handleSearchUserInput = async () => {
+    try {
+      if (userInput) {
+        let response = await fetch(
+          `https://dummyjson.com/products/search?q=${userInput}`
+        );
+        let data = await response.json();
+        if (data.products) {
+          setSearchItems(data.products);
+          // console.log(searchItems);
+          setUserInput ("");
+        } else {
+          setSearchItems([]);
+          setUserInput ("");
+        }
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
   return (
     <Layout>
       <div className="bg-[#eaf5f5]">
-        {/* product Navbar section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+
+
         <div className="w-full h-20 flex items-center justify-around flex-wrap bg-blue-300 mb-20">
           <div className="ml-10">
-            <input type="search" className=" w-52 h-9 rounded-s-lg" />
+            <input
+              type="search"
+              className="w-52 h-9 rounded-lg p-5"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onKeyDown={(e) => {
+                if  (e.key === "Enter") {
+                  handleSearchUserInput();
+              }
+            }}
+            />
             <button
               type="button"
-              className="w-24 h-9 bg-orange-600 text-white text-lg font-semibold rounded-e-lg hover:bg-orange-700 "
+              className="w-24 h-9 bg-orange-600 text-white text-lg font-semibold rounded-lg hover:bg-orange-700"
+              onClick={handleSearchUserInput}
             >
               Search
             </button>
           </div>
-
-          {/* allCategories section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++ */}
           <div className="">
             <select
               className="bg-[#eaf5f5] text-center w-56 h-7 rounded-lg capitalize"
@@ -82,21 +110,49 @@ function Products() {
             </select>
           </div>
         </div>
+       
+       <div className="w-screen h-auto flex justify-between">
 
-        {/* clicked product section ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= */}
+        {/* Render search results if available */}
+        <div>
+        {searchItems.length > 0 && (
+          <div>
+            <h2 className="text-4xl font-semibold mb-10 text-[#31587c] font-sans text-center tracking-widest">
+            Search Products
+            </h2>
+            
+            <div className="w-full h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap">
+              {searchItems.map((item, index) => (
+                <div key={index}>
+                  <Card
+                    title={item.title}
+                    price={item.price}
+                    rating={item.rating}
+                    image={item.thumbnail}
+                    btn={"Add To Cart"}
+                    DiscountPercentage={item.discountPercentage}
+                    AddToCartCard={() => {
+                      AddToCart(item);
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        </div>
+
 
         <div>
-          {/* Hidden selected products heading when no category selected */}
           <h1
-            className={`text-5xl text-center font-semibold mb-10 text-[#31587c] font-serif underline capitalize ${
+            className={`text-4xl font-semibold mb-10 text-[#31587c] font-sans text-center tracking-widest capitalize ${
               clickProduct === "" ? "hidden" : "block"
             }`}
           >
             {clickProduct}
           </h1>
-
-          <div className="w-screen h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap ">
-            {productsIteams.map((item, index) => (
+          <div className="w-full h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap ">
+            {productsItems.map((item, index) => (
               <div key={index}>
                 <Card
                   title={item.title}
@@ -105,7 +161,6 @@ function Products() {
                   image={item.thumbnail}
                   btn={"Add To  Cart"}
                   DiscountPercentage={item.discountPercentage}
-                  // quantity={item.quantity}
                   AddToCartCard={() => {
                     AddToCart(item);
                   }}
@@ -114,8 +169,8 @@ function Products() {
             ))}
           </div>
         </div>
-
-        {/* All products Section Starts Here +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
+        
+        </div>
 
         <AllProducts />
       </div>
