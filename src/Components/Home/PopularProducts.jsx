@@ -35,6 +35,7 @@ function PopularProducts() {
 
         {products.map((item, index) => (
           <Card
+          id={item.id}
           key={index}
           title={item.title}
           price={item.price}
