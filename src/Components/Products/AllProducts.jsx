@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import useProduct from "../Context/ProductContext";
+import ProductShimEffect from "./ProductShimEffect";
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -29,23 +30,28 @@ function AllProducts() {
         All Products
       </h2>
 
-      <div className="w-screen h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap ">
-        {products.map((item, index) => (
-          <Card
-            key={index}
-            title={item.title}
-            price={item.price}
-            rating={item.rating}
-            image={item.thumbnail}
-            btn={"Add To  Cart"}
-            DiscountPercentage={item.discountPercentage}
-            brandName={item.brand}
-            AddToCartCard={() => {
-              AddToCart(item);
-            }}
-          />
-        ))}
-      </div>
+      {!products.length ? (
+        <ProductShimEffect />
+      ) : (
+        <div className="w-screen h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex justify-center items-center lg:gap-10 md:gap-10 sm:gap-2 gap-2 mb-15 flex-wrap ">
+          {products.map((item, index) => (
+            <Card
+              id={item.id}
+              key={index}
+              title={item.title}
+              price={item.price}
+              rating={item.rating}
+              image={item.thumbnail}
+              btn={"Add To  Cart"}
+              DiscountPercentage={item.discountPercentage}
+              brandName={item.brand}
+              AddToCartCard={() => {
+                AddToCart(item);
+              }}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 }
