@@ -3,7 +3,6 @@ import Layout from "../Layout/Layout";
 import Card from "../Card/Card";
 import AllProducts from "./AllProducts";
 import useProduct from "../Context/ProductContext";
-import ProductShimEffect from "./ProductShimEffect";
 
 function Products() {
   const [allCategories, setAllCategories] = useState([]);
@@ -11,8 +10,6 @@ function Products() {
   const [productsItems, setProductsItems] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [searchItems, setSearchItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-
 
   const { AddToCart } = useProduct();
 
@@ -51,7 +48,7 @@ function Products() {
     fetchClickProduct();
   }, [clickProduct]);
 
-// function for handle the  Search functionality
+  // function for handle the  Search functionality
   const handleSearchUserInput = async () => {
     try {
       if (userInput) {
@@ -72,17 +69,6 @@ function Products() {
       console.log("Error", error);
     }
   };
-
-// function for loading  the page and getting all products from API
-  useEffect(() => {
-    // Simulate data fetching delay
-    const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated 1.5-second delay
-      setLoading(false); // Once data is fetched, set loading to false
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <Layout>
@@ -138,6 +124,7 @@ function Products() {
                   {searchItems.map((item, index) => (
                     <div key={index}>
                       <Card
+                        id={item.id}
                         title={item.title}
                         price={item.price}
                         rating={item.rating}
@@ -167,6 +154,7 @@ function Products() {
               {productsItems.map((item, index) => (
                 <div key={index}>
                   <Card
+                    id={item.id}
                     title={item.title}
                     price={item.price}
                     rating={item.rating}
@@ -182,13 +170,7 @@ function Products() {
             </div>
           </div>
         </div>
-        <div>
-      {loading ? (
-        <ProductShimEffect />
-      ) : (
         <AllProducts />
-      )}
-    </div>
       </div>
     </Layout>
   );
