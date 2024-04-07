@@ -30,7 +30,8 @@ function Gallery() {
                 <img
                   alt="gallery"
                   className="w-full h-full object-cover object-center block"
-                  src="./src/assets/product-1.jpg"
+                  // src="./src/assets/product-1.jpg"
+                  src="https://cdn-hcpnljh.nitrocdn.com/YrQJxRITfgGqwyIMODaEmwEBNhUWfPtR/assets/images/optimized/rev-e5ce7e2/hissenglobal.com/wp-content/uploads/2021/11/Photo-by-Julian-Schmidt-on-Unsplash.jpg"
                 />
               </div>
             </div>
