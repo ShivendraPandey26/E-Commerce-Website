@@ -22,7 +22,7 @@ function About() {
           <div className="lg:flex mb-10">
             <div>
               <img
-                src="./src/assets/about-01.jpg"
+                src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*ECm3QS4jMEryn_5f.jpg"
                 alt="about image"
                 height={300}
               />
@@ -48,7 +48,7 @@ function About() {
 
             <div>
               <img
-                src="./src/assets/about-02.jpg"
+                src="https://worldfinancialreview.com/wp-content/uploads/2021/07/photo-1557426272-fc759fdf7a8d.jpeg"
                 alt="about image"
                 height={300}
               />
