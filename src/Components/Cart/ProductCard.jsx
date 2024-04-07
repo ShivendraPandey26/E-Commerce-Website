@@ -1,5 +1,6 @@
 import React from "react";
 import useProduct from "../Context/ProductContext";
+import { Link } from "react-router-dom";
 
 function ProductCard({
   image,
@@ -8,7 +9,8 @@ function ProductCard({
   title,
   description,
   rating,
-  quantity
+  quantity,
+  id
 }) {
   const { setCartProduct, cartProduct, addToCart } = useProduct();
 
@@ -39,11 +41,13 @@ function ProductCard({
     <section className="text-gray-600 body-font w-full mb-5 ">
       <div className="container px-5 py-2 mx-auto  lg:h-80">
         <div className="lg:w-full mx-auto flex flex-wrap lg:h-full items-center border border-gray-400 rounded-xl">
+          <Link to={`/singleproduct/${id}`}>
           <img
             alt="ecommerce"
-            className="w-[30rem] h-[18.5rem] object-cover overflow-hidden rounded-lg"
+            className="w-[30rem] h-[18.5rem] object-cover overflow-hidden rounded-lg cursor-pointer"
             src={image}
           />
+          </Link>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 p-2 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
               {brandName}
