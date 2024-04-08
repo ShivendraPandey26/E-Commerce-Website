@@ -1,2 +1,2 @@
 # E-Commerce-Website
- Project is not completed.....
+ Link :- https://snapshop-shivendra.netlify.app/ 
