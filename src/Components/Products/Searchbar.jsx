@@ -48,7 +48,7 @@ function Searchbar() {
           <h2 className="text-4xl font-semibold mb-10 text-[#31587c] font-sans text-center tracking-widest">
             Search Products
           </h2>
-          <div className="w-full h-auto lg:p-10 md:p-10 sm:p-3 p-3 flex flex-wrap justify-center gap-10">
+          <div className="w-full h-auto lg:p-10 md:p-10 sm:p-3 p-1 flex flex-wrap justify-center gap-10">
             {searchItems.map((item) => (
               <Card
                 key={item.id}
