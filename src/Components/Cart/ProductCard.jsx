@@ -114,7 +114,7 @@ function ProductCard({
                 ₹{price}
               </span>
             </div>
-            <div className=" text-red-500 hover:text-red-700 hover:text-lg duration-500 ease-out">
+            <div className=" text-red-500 text-end  hover:text-red-700 hover:mx-1 duration-500 ease-out">
               <button
               onClick={handleRemoveCard}
                >Remove</button>

@@ -35,7 +35,7 @@ function Login() {
 
   return (
     <>
-      <div className="w-screen h-screen bg-gradient-to-tr from-cyan-300 to-gray-600">
+      <div className="w-screen h-screen bg-slate-400">
         <div className="text-right p-10 text-white">
           <Link to="/">
             <button>
@@ -45,7 +45,7 @@ function Login() {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="w-full lg:w-4/12 h-auto bg-transparent rounded-lg shadow-lg shadow-current">
+          <div className="w-full lg:w-4/12 h-auto bg-transparent rounded-lg shadow-md shadow-white">
             <div className="m-8 text-5xl text-blue-700 flex flex-col gap-5 items-center">
               <div>
                 <h1 className="underline underline-offset-[20px] text-white">
@@ -94,7 +94,7 @@ function Login() {
             <div>
               <Link to="/signup">
                 <button className="font-medium text-sm mb-5 mx-5 text-white">
-                  Don't have an account? Sign Up!
+                  Don't have an account? <span className="text-blue-500">Sign Up!</span>
                 </button>
               </Link>
             </div>

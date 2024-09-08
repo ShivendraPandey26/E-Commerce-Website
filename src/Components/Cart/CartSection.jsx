@@ -14,7 +14,8 @@ function CartSection() {
         accumulator + currentItem.price * currentItem.quantity,
       initialValue
     );
-    return sum;
+    const roundedNum = sum.toFixed(2); // Rounds to 2 decimal places
+    return roundedNum;
   };
 
   const promoCode = "shivendra";
@@ -142,11 +143,10 @@ function CartSection() {
                 </button>
               </div>
 
-                <div className="m-5 pb-2 text-[#32597d]">
-                Promo code is "shivendra". Enter the code and get a discount of 10%! 
-                </div>
-
-              
+              <div className="m-5 pb-2 text-[#32597d]">
+                Promo code is "shivendra". Enter the code and get a discount of
+                10%!
+              </div>
             </div>
           </div>
 

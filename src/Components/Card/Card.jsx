@@ -12,7 +12,7 @@ const Card = ({ title, price, image, rating, btn, DiscountPercentage, brandName,
           className="w-full h-40 object-cover overflow-hidden rounded-lg mb-4 cursor-pointer"
         />
         </Link>
-        <span className="relative right-4 bottom-[11.8rem] py-2 px-3 bg-red-600 me-10 text-white rounded-md">
+        <span className="relative right-4 bottom-[11.8rem] py-2 px-3 bg-red-600 me-10 text-white rounded-md z-0">
           {DiscountPercentage}% 
         </span>
           <h1>{brandName}</h1> 
