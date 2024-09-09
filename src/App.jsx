@@ -33,9 +33,13 @@ function App() {
     }
   };
 
+  const Checkout = () => {
+    setCartProduct([]);
+  }
+
 
   return (
-    <ProductContextProvider value={{ AddToCart, cartProduct, setCartProduct }}>
+    <ProductContextProvider value={{ AddToCart, cartProduct, setCartProduct, Checkout }}>
       <div>
         <BrowserRouter>
           <Routes>

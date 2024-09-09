@@ -3,9 +3,10 @@ import ProductCard from "./ProductCard";
 import useProduct from "../Context/ProductContext";
 import Layout from "../Layout/Layout";
 import Modal from "../Modal/Modal";
+import { Link } from "react-router-dom";
 
 function CartSection() {
-  const { cartProduct } = useProduct();
+  const { cartProduct, Checkout } = useProduct();
   const [promoInput, setPromoInput] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -170,12 +171,13 @@ function CartSection() {
           </h2>
         </div>
         <div className="flex flex-col items-center justify-center space-y-5 px-5 py-5">
-          <button
-            onClick={() => window.location.reload()}
-            className="w-full sm:w-[70%] md:w-[60%] lg:w-[60%] h-12 bg-orange-500 hover:bg-orange-600 rounded-3xl text-lg md:text-xl lg:text-2xl text-white transition-all duration-300 ease-in-out transform hover:scale-105"
+          <Link
+          to="/"
+            onClick={() => {Checkout()}}
+            className="p-3 px-10 bg-orange-500 hover:bg-orange-600 rounded-3xl text-lg md:text-xl lg:text-2xl text-white transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             Continue Shopping
-          </button>
+          </Link>
         </div>
       </Modal>
     </>
