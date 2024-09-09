@@ -64,7 +64,7 @@ function Navbar() {
 
           {/* Navbar for Mobile */}
           <ul
-            className={`duration-500 left-0 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-full h-full text-center py-20 gap-10 ${showMenu ? "top-[13%]" : "top-[-100%]"
+            className={`duration-500 flex flex-col md:hidden text-xl fixed text-black bg-blue-200 w-[70%] h-[50%] text-center py-20 top-[11%] gap-10 ${showMenu ? "right-[0%]" : "right-[-100%] z-40"
               }`}
           >
             <Link to="/">
@@ -104,11 +104,11 @@ function Navbar() {
           </Link>
 
               <Link  to="/cart">
-          <button type="button" className="text-2xl mx-5 cursor-pointer">
+          <button type="button" className="text-2xl mx-5 cursor-pointer z-0">
             <span className=" text-red-600 text-2xl font-extrabold mx-auto">{cartProduct.length}</span>
             <FaCartShopping
              size={30}
-             className="relative bottom-2"
+             className="relative bottom-2 z-0"
              /> 
           </button>
           </Link>
